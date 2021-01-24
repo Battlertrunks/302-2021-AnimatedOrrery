@@ -16,7 +16,15 @@ public class PlanetOrbit : MonoBehaviour
 
     void Start()
     {
-     
+        GameObject createLine = new GameObject { name = "OrbitCircle" };
+        if(this.gameObject.tag == "Moons")
+        {
+            createLine.DrawOrbitCircle(revolveRadius, 1f);
+            createLine.transform.SetParent(revolveAroundObject);
+            createLine.transform.position = revolveAroundObject.position;
+        }
+        else
+            createLine.DrawOrbitCircle(revolveRadius, 15f);
     }
 
 
