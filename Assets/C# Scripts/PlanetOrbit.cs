@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlanetOrbit : MonoBehaviour
 {
@@ -14,8 +15,12 @@ public class PlanetOrbit : MonoBehaviour
     [Range(0, 6.285f)]
     public float orbitPosition = 0;
 
+    public static List<GameObject> planetsAndMoons = new List<GameObject>();
+
     void Start()
     {
+        planetsAndMoons.Add(gameObject);
+
         GameObject createLine = new GameObject { name = "OrbitCircle" };
         if(this.gameObject.tag == "Moons")
         {
@@ -37,4 +42,10 @@ public class PlanetOrbit : MonoBehaviour
 
 
     }
+
+    public void Reverse()
+    {
+        orbitSpeed = orbitSpeed * -1;
+    }
+
 }

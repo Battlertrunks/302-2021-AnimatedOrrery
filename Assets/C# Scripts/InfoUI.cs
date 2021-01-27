@@ -11,9 +11,9 @@ public class InfoUI : MonoBehaviour
 
     void Update()
     {
-        Vector3 positionOfObject = cam.WorldToScreenPoint(this.transform.position);
-        infoBox.transform.position = positionOfObject;
-        Debug.Log(positionOfObject.x);
+        //Vector3 positionOfObject = cam.WorldToScreenPoint(this.transform.position);
+       // infoBox.transform.position = positionOfObject;
+        //Debug.Log(positionOfObject.x);
     }
 }
 

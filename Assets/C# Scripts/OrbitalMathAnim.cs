@@ -20,8 +20,8 @@ public static class OrbitalMathAnim
         {
             if (percentage < 0)
                 percentage = 0;
-            if (percentage > 1)
-                percentage = 1;
+            if (percentage > 0.99f)
+                percentage = 0.98f;
         }
         return (maximum - minimum) * percentage + minimum;
     }
@@ -32,9 +32,21 @@ public static class OrbitalMathAnim
         {
             if (percentage < 0)
                 percentage = 0;
-            if (percentage > 1)
-                percentage = 1;
+            if (percentage > 0.99f)
+                percentage = 0.99f;
         }
         return (maximum - minimum) * percentage + minimum;
+    }
+
+    public static float SlidingAction(float currentPosition, float targetToGo, float percentLeft)
+    {
+        float percent = Mathf.Pow(percentLeft, Time.deltaTime);
+        return OrbitalMathAnim.LerpFunc(currentPosition, targetToGo, percent);
+    }
+
+    public static Vector3 SlidingAction(Vector3 currentPosition, Vector3 targetToGo, float percentLeft)
+    {
+        float percent = Mathf.Pow(percentLeft, Time.deltaTime);
+        return OrbitalMathAnim.LerpFunc(currentPosition, targetToGo, percent);
     }
 }

@@ -25,10 +25,13 @@ public class CamLerp : MonoBehaviour
         {
             animTime += Time.deltaTime;
             percent = animTime / timeOfAnimLength;
-            percent = Mathf.Clamp(percent, 0, 1);
+            percent = Mathf.Clamp(percent, 0, .99f);
 
             float percentage = animCurve.Evaluate(percent);
             ExecuteLerp(percentage);
+
+            if (percent >= 0.99f)
+                camAnim = false;
 
         }
     }
@@ -41,5 +44,11 @@ public class CamLerp : MonoBehaviour
     private void OnValidate()
     {
         ExecuteLerp(percent);
+    }
+
+    public void PlayAnim()
+    {
+        camAnim = true;
+        animTime = 0;
     }
 }
