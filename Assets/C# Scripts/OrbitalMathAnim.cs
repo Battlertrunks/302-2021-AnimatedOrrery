@@ -49,4 +49,16 @@ public static class OrbitalMathAnim
         float percent = Mathf.Pow(percentLeft, Time.deltaTime);
         return OrbitalMathAnim.LerpFunc(currentPosition, targetToGo, percent);
     }
+
+    public static float SlidingEffect(float currentPos, float theTarget, float percentageLeft)
+    {
+        float percent = 1 - Mathf.Pow(percentageLeft, Time.deltaTime);
+        return OrbitalMathAnim.LerpFunc(currentPos, theTarget, percent);
+    }
+
+    public static Vector3 SlidingEffect(Vector3 currentPos, Vector3 theTarget, float percentageLeft)
+    {
+        float percent = 1 - Mathf.Pow(percentageLeft, Time.deltaTime);
+        return OrbitalMathAnim.LerpFunc(currentPos, theTarget, percent);
+    }
 }

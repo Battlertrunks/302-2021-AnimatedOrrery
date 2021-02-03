@@ -9,7 +9,6 @@ public class PlanetOrbit : MonoBehaviour
     private float time = 0;
     public Transform revolveAroundObject;
 
-    [Range(0, 10f)]
     public float orbitSpeed = 1;
 
     [Range(0, 6.285f)]
@@ -35,7 +34,7 @@ public class PlanetOrbit : MonoBehaviour
 
     void Update()
     {
-        time = time + Time.deltaTime * orbitSpeed;
+        time = time + Time.deltaTime * orbitSpeed * HUDTimeSlider.timeScale;
 
         Vector3 PlanetOrbitVectorXZ = OrbitalMathAnim.OrbitAroundTarget(revolveRadius, time, orbitPosition);
         transform.position = revolveAroundObject.position + PlanetOrbitVectorXZ;
@@ -43,9 +42,5 @@ public class PlanetOrbit : MonoBehaviour
 
     }
 
-    public void Reverse()
-    {
-        orbitSpeed = orbitSpeed * -1;
-    }
 
 }
