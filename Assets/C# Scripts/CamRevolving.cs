@@ -59,11 +59,11 @@ public class CamRevolving : MonoBehaviour
         // Rotating using Quaternion
         transform.rotation = Quaternion.Euler(thePitch, theYaw, 0);
 
-        float scrollWheel = Input.GetAxisRaw("Mouse ScrollWheel");
+        float scrollWheel = Input.GetAxisRaw("Mouse ScrollWheel"); // Gets value when player uses the scroll wheel
         theTargetDollyDis += scrollWheel * mouseScrollMultiplier;
-        theTargetDollyDis = Mathf.Clamp(theTargetDollyDis, TargetObject.distanceZoomMin, TargetObject.distanceZoomMax);
+        theTargetDollyDis = Mathf.Clamp(theTargetDollyDis, TargetObject.distanceZoomMin, TargetObject.distanceZoomMax); // clamps the zoom
 
-        theDollyDistance = OrbitalMathAnim.SlidingEffect(theDollyDistance, theTargetDollyDis, .05f);
-        assignedCams.transform.localPosition = new Vector3(0, 0, -theDollyDistance);
+        theDollyDistance = OrbitalMathAnim.SlidingEffect(theDollyDistance, theTargetDollyDis, .05f); // Sliding effect when the player zooms in and out
+        assignedCams.transform.localPosition = new Vector3(0, 0, -theDollyDistance); // Zooms in and out by using Vector3
     }
 }

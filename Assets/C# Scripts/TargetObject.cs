@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class TargetObject : MonoBehaviour
 {
+    /// <summary>
+    /// THE TARGETOBJECT MAKES THE CAMERA'S TARGET GO TO DIFFERENT PLANETS OR MOONS WHEN THE PLAYER CLICKS ON ONE OF THE PLANET BUTTONS AND SETS THE 
+    /// CAMERA'S MAX AND MIN ZOOM
+    /// </summary>
+
+    // Getting the GameObject to target to and initializing the starting values when the game loads
     public GameObject targetToLock;
     public float p = .5f;
     public static float distanceZoomMin = 15000;
@@ -11,9 +17,13 @@ public class TargetObject : MonoBehaviour
 
     void Update()
     {
+        // This updates to cause a slide like effect when the player switches to a different planet/moon, zooms in or out, and rotates with right mouse button.
         transform.position = OrbitalMathAnim.SlidingEffect(transform.position, targetToLock.transform.position, p);
     }
 
+    /// <summary>
+    /// These are buttons that the player can click and the camera will go to and set the max and min zoom distance
+    /// </summary>
     public void GalaxyView()
     {
         targetToLock = GameObject.Find("/Sun (Main Center)");
