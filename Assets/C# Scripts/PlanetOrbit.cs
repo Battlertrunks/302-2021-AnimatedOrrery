@@ -6,8 +6,10 @@ using UnityEngine.UI;
 public class PlanetOrbit : MonoBehaviour
 {
     public float revolveRadius = 0;
-    private float time = 0;
+    public float time = 0;
     public Transform revolveAroundObject;
+
+    public float revolutions = 0;
 
     public float orbitSpeed = 1;
 
@@ -38,9 +40,5 @@ public class PlanetOrbit : MonoBehaviour
 
         Vector3 PlanetOrbitVectorXZ = OrbitalMathAnim.OrbitAroundTarget(revolveRadius, time, orbitPosition);
         transform.position = revolveAroundObject.position + PlanetOrbitVectorXZ;
-
-
     }
-
-
 }
