@@ -3825,6 +3825,7 @@ GameObject:
   - component: {fileID: 1379119484}
   - component: {fileID: 1379119486}
   - component: {fileID: 1379119485}
+  - component: {fileID: 1379119487}
   m_Layer: 0
   m_Name: TheCameraRig
   m_TagString: Untagged
@@ -3877,6 +3878,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetToLock: {fileID: 118157342}
   p: 0.001
+--- !u!114 &1379119487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1379119483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6165598b541ba9b49afc0ac514c524f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraPos: {fileID: 1379119484}
+  planetOrMoonTarget: {fileID: 0}
 --- !u!1 &1397478640
 GameObject:
   m_ObjectHideFlags: 0
@@ -6063,7 +6078,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1923520205}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0bbb82fab141a7142a491f8052a291af, type: 3}

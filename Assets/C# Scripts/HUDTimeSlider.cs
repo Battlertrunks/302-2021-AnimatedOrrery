@@ -28,8 +28,9 @@ public class HUDTimeSlider : MonoBehaviour
     // This function assigns the time to timeScale and than converts it into a string for the textTimeNoti to show the user
     public void SliderTimeUpdater(float amount)
     {
-            timeScale = amount * pauseValue;
-            textTimeNoti.text = System.Math.Round(timeScale, 2).ToString();
+        timeScale = amount * pauseValue;
+        textTimeNoti.text = System.Math.Round(timeScale, 2).ToString();
+        LerpingBetweenTwoPoints.percent = 1;
     }
 
     // Pauses the game when the player press the pause/resume button
@@ -39,6 +40,7 @@ public class HUDTimeSlider : MonoBehaviour
         {
             savedTime = timeScale;
             timeScale = 0;
+            LerpingBetweenTwoPoints.percent = 0;
             paused = false;
 
         }
@@ -46,6 +48,7 @@ public class HUDTimeSlider : MonoBehaviour
         {
             timeScale = savedTime;
             savedTime = 0;
+            LerpingBetweenTwoPoints.percent = 1;
             paused = true;
         }
     }
